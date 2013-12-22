@@ -1,21 +1,105 @@
-<h1>soundcloud-open-in-app-app</h1>
-
-
-<h2>Bookmarklet</h2>
-<a href="javascript:var%20appUrl%20%3D%20%27http%3A%2F%2Fsoundcloud-open-in-app.herokuapp.com%2Fgo%2F%27%20%2B%20window.location.href%3B%0Awindow.location%20%3D%20appUrl%3B">OpenInSoundCloudApp</a>
-
-<h2>API</h2>
-<pre>
-http://soundcloud-open-in-app.herokuapp.com/go/&lt;soundcloud_url&gt;
-</pre>
-
-<h2>Example Link</h2>
-  <p>
-    <a href="http://soundcloud-open-in-app.herokuapp.com/go/https://soundcloud.com/ninja-tune/solid-steel-radio-show-20-12-1">http://soundcloud-open-in-app.herokuapp.com/go/https://soundcloud.com/ninja-tune/solid-steel-radio-show-20-12-1</a>
-  </p>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>soundcloud-open-in-app-app bookmarklet</title>
+  <link rel="stylesheet" type="text/css" href="http://getbootstrap.com/dist/css/bootstrap.min.css">
+  <style type="text/css" media="screen">
+    body { 
+      padding: 70px 0 36em 0;
+    }
+    section {
+      padding-top: 4em;
+    }
+    .jumbotron {
+      background-color: hsl(180, 14%, 96%);
+    }
+  </style>
+</head>
+<body id="index">
   
-<style type="text/css" media="screen">
-body {
-  font-family: monospace;
-}
-</style>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+    
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#top">soundcloud-open-in-app-app</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#bookmarklet">Bookmarklet</a></li>
+        <li><a href="#api">API</a></li>
+        <li><a href="#meta">Meta</a> </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+    </div>
+  </nav>
+  
+  <div class="container">
+
+    <section id="bookmarklet" class="jumbotron">
+      <h1>Open in mobile SoundCloud App</h1>
+      
+      <p class="lead">
+        Directly <b>open a SoundCloud track in the mobile app</b>, <br>via redirection to aspecial URL. <br>
+      <small class="text-muted">Should work on <code>iOS</code> and <code>Android</code>.
+      </small>
+      </p>
+      
+      <h3>Bookmarklet</h3>
+      <p class="lead">
+        <em>Drag this to your Bookmarks bar:</em>
+        <br>
+        <a class="btn btn-primary" href="javascript:var%20appUrl%20%3D%20%27http%3A%2F%2Fsoundcloud-open-in-app.herokuapp.com%2Fgo%2F%27%20%2B%20window.location.href%3B%0Awindow.location%20%3D%20appUrl%3B"><kbd><strong>OpenInSoundCloudApp</strong></kbd></a>
+      </p>
+      <p>
+        Or copy this text and save it as a bookmark:
+        <form role="form">
+          <input type="text" value="javascript:var%20appUrl%20%3D%20%27http%3A%2F%2Fsoundcloud-open-in-app.herokuapp.com%2Fgo%2F%27%20%2B%20window.location.href%3B%0Awindow.location%20%3D%20appUrl%3B" readonly="readonly" class="form-control" >
+        </form>
+      </p>
+      <p class="lead text-muted">
+        <small><strong><kbd>WTF?</kbd></strong> Read
+          <a href="https://en.wikipedia.org/wiki/Bookmarklet">"Bookmarklet"</a> on Wikipedia</small>
+      </p>
+    </section>
+  
+    <section id="api">
+      <h2>API <small>How does it work?</small></h2>
+  
+      <h3>go</h3>
+      <p>Open a SoundCloud track in a native app, via a special URL <small>(<kbd>soundcloud://tracks:{id}</kbd>)</small>.
+      <code>
+      http://soundcloud-open-in-app.herokuapp.com/go/{soundcloud_url}
+      </code>
+      </p>
+  
+      <h4>Example Link</h4>
+        <code><small>
+          <a href="http://soundcloud-open-in-app.herokuapp.com/go/https://soundcloud.com/ninja-tune/solid-steel-radio-show-20-12-1"><kbd>http://soundcloud-open-in-app.herokuapp.com/go/https://soundcloud.com/ninja-tune/solid-steel-radio-show-20-12-1</kbd></a>
+        </small></code>
+    </section>
+  
+    <section id="meta">
+      <h2>Meta</h2>
+  
+      <ul>
+        <li>Code on <a href="https://github.com/eins78/soundcloud-open-in-app-app">github</a></li>
+        <li>Open Source, MIT License</li>
+        <li><a href="http://nodejs.org"><kbd>node.js</kbd></a></li>
+        <li>runs for free on <a href="http://heroku.com">heroku</a></li>
+        <li>No affiliation with <a href="http://soundcloud.com">SoundCloud</a></li>
+      </ul>
+    </section>
+
+  </div> <!-- /container -->
+
+</body>
