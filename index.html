@@ -8,7 +8,7 @@
     body { 
       padding: 70px 0 36em 0;
     }
-    section {
+    .container > section {
       padding-top: 4em;
     }
     .jumbotron {
@@ -36,7 +36,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#bookmarklet">Bookmarklet</a></li>
-        <li><a href="#api">API</a></li>
+        <li><a href="#api-how-does-it-work">API</a></li>
         <li><a href="#meta">Meta</a> </li>
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -72,32 +72,27 @@
       </p>
     </section>
   
-    <section id="api">
-      <h2>API <small>How does it work?</small></h2>
-  
-      <h3>go</h3>
-      <p>Open a SoundCloud track in a native app, via a special URL <small>(<kbd>soundcloud://tracks:{id}</kbd>)</small>.
-      <code>
-      http://soundcloud-open-in-app.herokuapp.com/go/{soundcloud_url}
-      </code>
-      </p>
-  
-      <h4>Example Link</h4>
-        <code><small>
-          <a href="http://soundcloud-open-in-app.herokuapp.com/go/https://soundcloud.com/ninja-tune/solid-steel-radio-show-20-12-1"><kbd>http://soundcloud-open-in-app.herokuapp.com/go/https://soundcloud.com/ninja-tune/solid-steel-radio-show-20-12-1</kbd></a>
-        </small></code>
+    <!-- paste from `pandoc -i README.md -t html5 - -section`-->
+    <section id="api-how-does-it-work" class="level2">
+    <h2>API <small>How does it work?</small></h2>
+    <section id="go" class="level3">
+    <h3>go</h3>
+    <p>Redirect to a special URL (soundcloud://tracks:{id}).<br /><code>http://soundcloud-open-in-app.herokuapp.com/go/{soundcloud_url}</code></p>
+    <section id="example-link" class="level4">
+    <h4>Example Link</h4>
+    <p><code><a href="http://soundcloud-open-in-app.herokuapp.com/go/https://soundcloud.com/ninja-tune/solid-steel-radio-show-20-12-1">http://soundcloud-open-in-app.herokuapp.com/go/https://soundcloud.com/ninja-tune/solid-steel-radio-show-20-12-1</a></code></p>
     </section>
-  
-    <section id="meta">
-      <h2>Meta</h2>
-  
-      <ul>
-        <li>Code on <a href="https://github.com/eins78/soundcloud-open-in-app-app">github</a></li>
-        <li>Open Source, MIT License</li>
-        <li><a href="http://nodejs.org"><kbd>node.js</kbd></a></li>
-        <li>runs for free on <a href="http://heroku.com">heroku</a></li>
-        <li>No affiliation with <a href="http://soundcloud.com">SoundCloud</a></li>
-      </ul>
+    </section>
+    </section>
+    <section id="meta" class="level2">
+    <h2>Meta</h2>
+    <ul class="incremental">
+    <li>Code on <a href="https://github.com/eins78/soundcloud-open-in-app-app">github</a></li>
+    <li>Open Source, MIT License</li>
+    <li><a href="http://nodejs.org">node.js</a></li>
+    <li>runs for free on <a href="http://heroku.com">heroku</a></li>
+    <li>No affiliation with <a href="http://soundcloud.com">SoundCloud</a></li>
+    </ul>
     </section>
 
   </div> <!-- /container -->
