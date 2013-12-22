@@ -1,4 +1,6 @@
-soundcloud-open-in-app-app
-==========================
+# [soundcloud-open-in-app-app](http://soundcloud-open-in-app.herokuapp.com)
 
-open a track from soundcloud.com in the native app (iOS and Android)
+
+bookmarklet to open a track from soundcloud.com in the mobile app (iOS and Android)
+
+<http://soundcloud-open-in-app.herokuapp.com>
