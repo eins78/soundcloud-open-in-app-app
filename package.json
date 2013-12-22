@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/eins78/soundcloud-open-in-app-app/issues"
   },
-  "homepage": "https://github.com/eins78/soundcloud-open-in-app-app"
+  "homepage": "https://github.com/eins78/soundcloud-open-in-app-app",
+  "dependencies": {
+    "logfmt": "~0.18.1",
+    "express": "~3.4.7"
+  }
 }
