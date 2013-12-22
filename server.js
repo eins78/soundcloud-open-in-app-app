@@ -16,39 +16,16 @@ app.get('/', function(req, res) {
 
 // serve track-to-app-redirections
 app.get(/\/go\/(.+)/, function(req, res) {
-  var ScUrl = req.params[0];
-  var ScAppUrl = "soundcloud://tracks:";
-  
-  var ApiUrl = 
-    'http://api.soundcloud.com/resolve.json?' + 
-    'url=' + ScUrl + 
-    '&client_id=' + process.env.SC_client_id;
-  
-  console.log("Requesting " + ApiUrl);
-  
-  request({
-      url: ApiUrl,
-      json: true
-    },
-    function (err, apires, data) {
-      
-      console.log(apires, data);
-      
-      // check for errors, abort if any
-      if (err || !data ) {
-        return res.send("SoundCloud API error :(");
-      }
-      if (data.kind !== "track") {
-        return res.send("Input is not a SoundCloud track :(");
-      }
-      if (!data.id) {
-        return res.send("Could not find SoundCloud track id :(");
-      }
-      
-      // redirect to soundcloud in-app-url
-      res.redirect(ScAppUrl + data.id);
+
+  sc.dataByUrl(req.params[0], function (err, data) {
+    // abort on errors
+    if (err) {
+      return fail(res, err);
     }
-  );
+    
+    // redirect to soundcloud in-app-url
+    res.redirect(data.appUrl);
+  });
   
 });
 
@@ -58,3 +35,48 @@ app.listen(port, function() {
   console.log("Listening on " + port);
   console.log("SC id " + process.env.SC_client_id);
 });
+
+// FUNCTIONS
+
+var sc = {
+  dataByUrl: function (ScUrl, callback) {
+    var ScAppUrl = "soundcloud://tracks:";
+    var ApiUrl = 
+      'http://api.soundcloud.com/resolve.json?' + 
+      'url=' + ScUrl + 
+      '&client_id=' + process.env.SC_client_id;
+  
+    // console.log("Requesting " + ApiUrl);
+  
+    request({
+        url: ApiUrl,
+        json: true
+      },
+      function (err, apires, data) {
+      
+        // console.log(apires, data);
+      
+        // check for errors, abort if any
+        if (err || !data ) {
+          return callback("SoundCloud API error :(");
+        }
+        if (data.kind !== "track") {
+          return callback("Input is not a SoundCloud track :(");
+        }
+        if (!data.id) {
+          return callback("Could not find SoundCloud track id :(");
+        }
+        
+        data.appUrl = ScAppUrl + data.id;
+        callback(null, data);
+      
+      }
+    );
+    
+  }
+};
+
+var fail = function (res, str) {
+  var msg = '<h1><kbd><b>404:</b> '+str+'</kbd></h1>';
+  res.send(404, msg);
+}
