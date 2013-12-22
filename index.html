@@ -14,6 +14,9 @@
     .jumbotron {
       background-color: hsl(180, 14%, 96%);
     }
+    .jumbotron p {
+      line-height: 1.4;
+    }
   </style>
 </head>
 <body id="index">
@@ -49,49 +52,75 @@
       <h1>Open in mobile SoundCloud App</h1>
       
       <p class="lead">
-        Directly <b>open a SoundCloud track in the mobile app</b>, <br>via redirection to aspecial URL. <br>
+        Directly <b>open a SoundCloud track in the mobile app</b>, <br>via redirection to a special URL. <br>
       <small class="text-muted">Should work on <code>iOS</code> and <code>Android</code>.
       </small>
       </p>
       
-      <h3>Bookmarklet</h3>
-      <p class="lead">
-        <em>Drag this to your Bookmarks bar:</em>
-        <br>
-        <a class="btn btn-primary" href="javascript:var%20appUrl%20%3D%20%27http%3A%2F%2Fsoundcloud-open-in-app.herokuapp.com%2Fgo%2F%27%20%2B%20window.location.href%3B%0Awindow.location%20%3D%20appUrl%3B"><kbd><strong>OpenInSoundCloudApp</strong></kbd></a>
+      <h3>Use with URL</h3>
+      <p>
+        Just <strong>change</strong>
+        <code>https://soundcloud.com</code>
+        <strong>to</strong> <code>http://soundcloudapp.ars.is</code><br>
+        <small>(replace <strong><code>.com</code></strong> with <strong><code>app.ars.is</code></strong> <br>and <strong><code>https</code></strong> with <strong><code>http</code></strong>)</small>.
       </p>
+      
+      <h3>Use with Bookmarklet</h3>
+      <p>
+        <small>Uses heroku domain, so <b><code>HTTPS</code></b> works!<br>
+          (<kbd>https://soundcloud-open-in-app.herokuapp.com</kbd>)</small>
+      </p>
+      <ul><li>
+      <p>
+        <em>Drag this to your Bookmarks bar:</em>
+        <form>
+          <a class="btn btn-primary" href="javascript:var%20a%20%3D%20window.location.href.replace%28%27soundcloud.com%27%2C%20%27soundcloud-open-in-app.herokuapp.com%27%29%3B%0Awindow.location%20%3D%20a%3B">
+            <kbd><strong>
+              OpenInSoundCloudApp
+            </strong></kbd>
+          </a>
+        </form>
+      </p>
+      </li><li>
       <p>
         Or copy this text and save it as a bookmark:
         <form role="form">
-          <input type="text" value="javascript:var%20appUrl%20%3D%20%27http%3A%2F%2Fsoundcloud-open-in-app.herokuapp.com%2Fgo%2F%27%20%2B%20window.location.href%3B%0Awindow.location%20%3D%20appUrl%3B" readonly="readonly" class="form-control" >
+          <input type="text" value="javascript:var%20a%20%3D%20window.location.href.replace%28%27soundcloud.com%27%2C%20%27soundcloud-open-in-app.herokuapp.com%27%29%3B%0Awindow.location%20%3D%20a%3B" readonly="readonly" class="form-control" >
         </form>
       </p>
       <p class="lead text-muted">
         <small><strong><kbd>WTF?</kbd></strong> Read
           <a href="https://en.wikipedia.org/wiki/Bookmarklet">"Bookmarklet"</a> on Wikipedia</small>
       </p>
+      </li></ul>
     </section>
   
     <!-- paste from `pandoc -i README.md -t html5 - -section`-->
-    <section id="api-how-does-it-work" class="level2">
     <h2>API <small>How does it work?</small></h2>
-    <section id="go" class="level3">
-    <h3>go</h3>
-    <p>Redirect to a special URL (soundcloud://tracks:{id}).<br /><code>http://soundcloud-open-in-app.herokuapp.com/go/{soundcloud_url}</code></p>
+    <section id="slug" class="level3">
+    <h3><code>{slug}</code></h3>
+    <p><strong>Parameter:</strong> just the &quot;slug&quot; of a track's <code>URL</code> (i.e. the part after <code>soundcloud.com</code>).</p>
+    <p>Redirects to a special URL <small>(<code>soundcloud://tracks:{id}</code>)</small>,<br />which will open the SoundCloud App on <code>iOS</code> and <code>Android</code> devices.</p>
+    <p><strong>Can be used without a bookmarklet, by just editing the <code>URL</code> in your browser.</strong><br />Just change <code>soundcloud.com</code> to <code>soundcloudapp.ars.is</code> (replace <strong><code>.com</code></strong> with <strong><code>app.ars.is</code></strong>).</p>
+    <p><strong>Important:</strong> <code>HTTP</code> only!</p>
+    <section id="url" class="level4">
+    <h4><strong>URL:</strong></h4>
+    <p><code>http://soundcloudapp.ars.is/go/{soundcloud_url}</code></p>
+    </section>
     <section id="example-link" class="level4">
     <h4>Example Link</h4>
-    <p><code><a href="http://soundcloud-open-in-app.herokuapp.com/go/https://soundcloud.com/ninja-tune/solid-steel-radio-show-20-12-1">http://soundcloud-open-in-app.herokuapp.com/go/https://soundcloud.com/ninja-tune/solid-steel-radio-show-20-12-1</a></code></p>
+    <p><small><code><a href="http://soundcloudapp.ars.is/ninja-tune/solid-steel-radio-show-20-12-1">http://soundcloudapp.ars.is/ninja-tune/solid-steel-radio-show-20-12-1</a></code></small></p>
     </section>
     </section>
     </section>
     <section id="meta" class="level2">
     <h2>Meta</h2>
     <ul class="incremental">
-    <li>Code on <a href="https://github.com/eins78/soundcloud-open-in-app-app">github</a></li>
-    <li>Open Source, MIT License</li>
-    <li><a href="http://nodejs.org">node.js</a></li>
-    <li>runs for free on <a href="http://heroku.com">heroku</a></li>
-    <li>No affiliation with <a href="http://soundcloud.com">SoundCloud</a></li>
+    <li>Code on <a href="https://github.com/eins78/soundcloud-open-in-app-app"><code>github</code></a>; Open Source, <code>MIT</code> License</li>
+    <li><a href="http://nodejs.org"><code>node.js</code></a>, <a href="http://expressjs.com"><code>express</code></a>, <a href="https://npmjs.org/package/request"><code>request</code></a></li>
+    <li><a href="http://getbootstrap.com"><code>bootstrap</code></a>, <a href="http://code.divshot.com/bootstrap-theme-cirrus/"><code>bootstrap-theme-cirrus</code></a></li>
+    <li>runs for free on <a href="http://heroku.com"><code>heroku</code></a></li>
+    <li>No affiliation with <a href="http://soundcloud.com"><code>SoundCloud</code></a>; but uses their <a href="http://dev.soundcloud.com/docs/api/reference#resolve"><code>API</code></a></li>
     </ul>
     </section>
 

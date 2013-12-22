@@ -1,3 +1,3 @@
 // soundcloud-open-in-app-bookmarklet
-var appUrl = 'http://soundcloud-open-in-app.herokuapp.com/go/' + window.location.href;
-window.location = appUrl;
+var a = window.location.href.replace('soundcloud.com', 'soundcloud-open-in-app.herokuapp.com');
+window.location = a;

@@ -15,7 +15,7 @@ app.get('/', function(req, res) {
 });
 
 // serve track-to-app-redirections
-app.get(/\/go\/(.+)/, function(req, res) {
+app.get(/(.+)/, function(req, res) {
 
   sc.dataByUrl(req.params[0], function (err, data) {
     // abort on errors
@@ -43,10 +43,10 @@ var sc = {
     var ScAppUrl = "soundcloud://tracks:";
     var ApiUrl = 
       'http://api.soundcloud.com/resolve.json?' + 
-      'url=' + ScUrl + 
+      'url=' + 'http://soundcloud.com' + ScUrl + 
       '&client_id=' + process.env.SC_client_id;
   
-    // console.log("Requesting " + ApiUrl);
+    console.log("Requesting " + ApiUrl);
   
     request({
         url: ApiUrl,
