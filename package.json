@@ -1,0 +1,24 @@
+{
+  "name": "soundcloud-open-in-app-app",
+  "version": "0.0.0",
+  "description": "open a track from soundcloud.com in the native app (server part)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eins78/soundcloud-open-in-app-app.git"
+  },
+  "author": "eins78 <1@178.is>",
+  "license": "MIT",
+  "engines": {
+     "node": "0.10.x"
+   }
+ },
+  "bugs": {
+    "url": "https://github.com/eins78/soundcloud-open-in-app-app/issues"
+  },
+  "homepage": "https://github.com/eins78/soundcloud-open-in-app-app"
+}
