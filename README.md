@@ -21,7 +21,7 @@ Just change `soundcloud.com` to `soundcloudapp.ars.is` (replace **`.com`** with 
 
 #### **URL:** 
 
-`http://soundcloudapp.ars.is/go/{soundcloud_url}`
+`http://soundcloudapp.ars.is/{soundcloud_url}`
 
 #### Example Link
 
