@@ -9,7 +9,9 @@ bookmarklet to open a track from soundcloud.com in the mobile app (iOS and Andro
 
 ### `{slug}`
 
-**Parameter:** just the "slug" of a track's `URL` (i.e. the part after `soundcloud.com`).
+**Parameter:** just the "slug" of soundcloud `URL` (i.e. the part after `soundcloud.com`).
+
+Can point to either a track (`/track/…`) or playlist (`/set/…`).
 
 Redirects to a special URL <small>(`soundcloud://tracks:{id}`)</small>,  
 which will open the SoundCloud App on `iOS` and `Android` devices.
